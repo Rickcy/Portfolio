@@ -1,0 +1,12 @@
+*.sw*
+*~
+app/
+bin/
+node_modules/
+vendor/angular
+vendor/angular-bootstrap
+vendor/angular-mocks
+vendor/angular-ui-router
+vendor/bootstrap
+vendor/jquery
+.idea/
