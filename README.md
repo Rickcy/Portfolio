@@ -8,7 +8,7 @@ Install Node.js and then:
 $ sudo npm -g install grunt-cli karma bower
 $ npm install
 $ bower install
-$ grunt default
+$ grunt watch
 $ npm start 
  Open http://localhost:8000/build
 ```
