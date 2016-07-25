@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="ngBoilerplate" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@joshdmiller">
+    <meta name="twitter:title" content="ngBoilerplate">
+    <meta name="twitter:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
+    <meta name="twitter:creator" content="@joshdmiller">
+    <meta name="twitter:image:src" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846">
+    <meta property="og:title" content="ngBoilerplate" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://bit.ly/ngBoilerplate" />
+    <meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />
+    <meta property="og:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/ngbp-0.3.2.css" />
+
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.waypoints-2.0.0.js"></script>
+    <script type="text/javascript" src="vendor/jquery.easypiechart.js"></script>
+    <script type="text/javascript" src="src/app/app.js"></script>
+    <script type="text/javascript" src="src/app/contacts/contacts.js"></script>
+    <script type="text/javascript" src="src/app/home/home.js"></script>
+    <script type="text/javascript" src="src/app/services/services.js"></script>
+    <script type="text/javascript" src="src/app/works/works.js"></script>
+    <script type="text/javascript" src="src/common/plusOne/plusOne.js"></script>
+    <script type="text/javascript" src="templates-common.js"></script>
+    <script type="text/javascript" src="templates-app.js"></script>
+
+    <!-- it's stupid to have to load it here, but this is for the +1 button -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      { "parsetags": "explicit" }
+    </script>
+  </head>
+  <body>
+
+    <div class="head">
+
+      <div class="navbar navbar-default" style="border-radius: 0">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-target="#menuCollapsed" data-toggle="collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!--<div class="navbar-brand">-->
+            <!--ngbp-->
+            <!--<small>-->
+              <!--<a href="http://github.com/ngbp/ngbp/blob/v0.3.2-release/CHANGELOG.md">-->
+                <!--v0.3.2-->
+              <!--</a>-->
+            <!--</small>-->
+          <!--</div>-->
+        </div>
+        <div class="collapse navbar-collapse" id="menuCollapsed">
+          <ul class="nav navbar-nav navbar-right">
+            <li ui-sref-active="active">
+              <a href ui-sref="home">
+                <i class="fa fa-home"></i>
+                Home
+              </a>
+            </li>
+            <li ui-sref-active="active">
+              <a href ui-sref="services">
+                <i class="fa fa-info"></i>
+                Services | Skills
+              </a>
+            </li>
+            <li ui-sref-active="active">
+              <a href ui-sref="works">
+                <i class="fa fa-bookmark"></i>
+                Works
+              </a>
+            </li>
+
+            <li>
+              <a target="_blank" href="https://github.com/Rickcy">
+                <i class="fa fa-github-alt"></i>
+                Github
+              </a>
+            </li>
+            <li ui-sref-active="active">
+              <a href onclick="a()" ui-sref="contacts">
+                <i class="fa fa-comment"></i>
+                Contacts
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div  ui-view="main"></div>
+
+
+    <script>
+      $(document).ready(function(){
+       if($(window).height()<550||$(window).width()<350){
+         $('.footer').css('bottom','-350px')
+       }
+
+      });
+      function a(){setTimeout(function(){
+        if($(window).height()<550||$(window).width()<350){
+          $('.footer').css('bottom','-350px')
+        }},1000)
+
+      }
+    </script>
+
+
+  </body>
+</html>

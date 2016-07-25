@@ -102,7 +102,7 @@ module.exports = function ( grunt ) {
           expand: true,
           cwd: 'src/',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'app/'
+          dest: 'build/'
         }]
       }
     },
