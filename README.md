@@ -10,5 +10,5 @@ $ npm install
 $ bower install
 $ grunt default
 $ npm start 
- Open http://localhost:8000/app
+ Open http://localhost:8000/build
 ```
