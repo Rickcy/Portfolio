@@ -2,16 +2,26 @@ angular.module( 'ngBoilerplate.contacts', [
     'ui.router',
     'placeholders'
 ])
+    .controller( 'ContactsCtrl', function ContactsCtrl( $scope,CommonProp,$location ) {
+        $scope.username = CommonProp.getUser();
+        if(!$scope.username){
+            $location.path('/home');
+        }
+        $scope.logout = function(){
+            CommonProp.logoutUser();
 
+        };
+    })
 
-    .controller( 'ContactsCtrl', function ContactsCtrl( $scope ) {
+    .controller( '[A]ContactsCtrl', function AContactsCtrl( $scope,CommonProp,$location ) {
+        $scope.username = CommonProp.getUser();
+        if(!$scope.username){
+            $location.path('/home');
+        }
+        $scope.logout = function(){
+            CommonProp.logoutUser();
 
-        $scope.console = 'OK';
-        $scope.dropdownDemoItems = [
-            "The first choice!",
-            "And another choice for you.",
-            "but wait! A third!"
-        ];
+        };
     })
 
 ;

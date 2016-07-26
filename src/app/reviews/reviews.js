@@ -1,13 +1,14 @@
-angular.module( 'ngBoilerplate.works', [
+angular.module( 'ngBoilerplate.reviews', [
     'ui.router',
     'placeholders'
 ])
-    .controller( 'WorksCtrl', function WorksCtrl( $scope,CommonProp,$location ) {
+
+    .controller( 'ReviewsCtrl', function ReviewsCtrl( $scope,CommonProp,$location ) {
 
     })
 
 
-    .controller( '[A]WorksCtrl', function AWorksCtrl( $scope,CommonProp,$location ) {
+    .controller( '[A]ReviewsCtrl', function AReviewsCtrl( $scope,CommonProp,$location ) {
         $scope.username = CommonProp.getUser();
         if(!$scope.username){
             $location.path('/home');

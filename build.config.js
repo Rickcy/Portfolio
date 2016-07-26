@@ -71,6 +71,7 @@ module.exports = {
       'vendor/jquery/dist/jquery.min.js',
       'vendor/bootstrap/dist/js/bootstrap.min.js',
       'vendor/jquery.waypoints-2.0.0.js',
+
       'vendor/jquery.easypiechart.js'
     ],
     css: [

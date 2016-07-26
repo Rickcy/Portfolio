@@ -5,8 +5,9 @@ angular.module( 'ngBoilerplate.home', [
 ])
 
 
-.controller( 'HomeCtrl', function HomeController( $scope ) {
+.controller( 'HomeCtrl', function HomeController( $scope,CommonProp ) {
       $scope.console = 'OK';
+
 })
 
 ;

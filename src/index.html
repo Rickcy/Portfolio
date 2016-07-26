@@ -31,68 +31,13 @@
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
       { "parsetags": "explicit" }
     </script>
-    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+
   </head>
   <body>
 
-    <div class="head">
-
-      <div class="navbar navbar-default navbar-fixed-top" style="border-radius: 0">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-target="#menuCollapsed" data-toggle="collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!--<div class="navbar-brand">-->
-            <!--ngbp-->
-            <!--<small>-->
-              <!--<a href="http://github.com/ngbp/ngbp/blob/v<%= version %>-release/CHANGELOG.md">-->
-                <!--v<%= version %>-->
-              <!--</a>-->
-            <!--</small>-->
-          <!--</div>-->
-        </div>
-        <div class="collapse navbar-collapse" id="menuCollapsed">
-          <ul class="nav navbar-nav navbar-right">
-            <li ui-sref-active="active">
-              <a href ui-sref="home">
-                <i class="fa fa-home"></i>
-                Home
-              </a>
-            </li>
-            <li ui-sref-active="active">
-              <a href ui-sref="services">
-                <i class="fa fa-info"></i>
-                Services | Skills
-              </a>
-            </li>
-            <li ui-sref-active="active">
-              <a href ui-sref="works">
-                <i class="fa fa-bookmark"></i>
-                Works
-              </a>
-            </li>
-
-            <li>
-              <a target="_blank" href="https://github.com/Rickcy">
-                <i class="fa fa-github-alt"></i>
-                Github
-              </a>
-            </li>
-            <li ui-sref-active="active">
-              <a href onclick="a()" ui-sref="contacts">
-                <i class="fa fa-comment"></i>
-                Contacts
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+  <!--MenuView-->
+     <div  ui-view="menu"></div>
+  <!--ContentView-->
     <div  ui-view="main"></div>
 
 
@@ -110,7 +55,7 @@
 
       }
     </script>
-
-
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
   </body>
 </html>
