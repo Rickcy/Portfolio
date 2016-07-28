@@ -11,6 +11,7 @@
     'ngBoilerplate.login',
     'ngBoilerplate.admin',
     'ngBoilerplate.reviews',
+
     'ui.router'])
         //config
       .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {

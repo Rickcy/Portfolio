@@ -4,46 +4,83 @@ angular.module( 'ngBoilerplate.services', [
 ])
     .controller( 'ServiceCtrl', function ServiceCtrl( $scope,$firebase,CommonProp,$location ) {
 
-        var firebaseObj = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/");
+        //Request FireBase title is SERVICES
+        var firebaseObjService = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Services/");
+
+        //Saved in variable
+        var syncService = $firebase(firebaseObjService);
+
+        $scope.ServiceName = syncService.$asArray();
+
+        //Request FireBase title is SERVICES
+        var firebaseObjSkills = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Skills/");
+
+        //Saved in variable
+        var syncSkills = $firebase(firebaseObjSkills);
+
+        $scope.SkillsName = syncSkills.$asArray();
 
 
-        var sync = $firebase(firebaseObj);
-
-        $scope.element = sync.$asArray();
+        $scope.counter = 0;
 
 
+        $scope.SlideNext = function(){
+          if( $scope.counter== $scope.ServiceName.length){
+              $scope.counter =0;
+              console.log($scope.counter);
+          } else{ $scope.counter++;
+              console.log($scope.counter);
+          }
+
+        };
+        $scope.SlidePrevius = function(){
+            if($scope.counter===0){
+                $scope.counter = $scope.ServiceName.length;
+                console.log($scope.counter);
+            } else{ $scope.counter--;
+                console.log($scope.counter);
+            }
+
+        };
 
     })
 
 .controller( '[A]ServiceCtrl', function AServiceCtrl( $scope,$firebase,CommonProp,$location ) {
-
+            //User === Admin
       $scope.username = CommonProp.getUser();
+        //if User !== Admin ->>
       if(!$scope.username){
         $location.path('/home');
       }
+        //LogOut
       $scope.logout = function(){
         CommonProp.logoutUser();
 
       };
-        var firebaseObj = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/");
 
 
-        var sync = $firebase(firebaseObj);
 
-        $scope.element = sync.$asArray();
-        console.log(sync);
+
+//----------------------------SERVICES----------------------------------------------------------------------
+        //Request FireBase title is SERVICES
+        var firebaseObjService = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Services/");
+
+        //Saved in variable
+        var ServiceNamesync = $firebase(firebaseObjService);
+
+        $scope.ServiceName = ServiceNamesync.$asArray();
+
+        //Add Service
         $scope.AddServices = function(){
-            var name = $scope.element.name;
 
-
-            var firebaseObj = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/");
-
-            var fb = $firebase(firebaseObj);
+            var ServicesName = $scope.ServiceName.name;
 
 
 
 
-            fb.$push({name: name}).then(function(ref) {
+
+
+            ServiceNamesync.$push({name: ServicesName}).then(function(ref) {
 
 
             }, function(error) {
@@ -52,32 +89,34 @@ angular.module( 'ngBoilerplate.services', [
             });
 
         };
-        $scope.confirmDelete = function(id) {
-            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/" + id);
-            var element = $firebase(fb);
-            $scope.postToDelete = element.$asObject();
-            $('#deleteModal').modal();
+
+        //Message about Delete
+        $scope.confirmDeleteService = function(id) {
+            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Services/" + id);
+            var ServiceElement = $firebase(fb);
+            $scope.ServiceToDelete = ServiceElement.$asObject();
+            $('#deleteModalService').modal();
         };
 
         $scope.deleteService = function() {
-            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/" + $scope.postToDelete.$id);
-            var element = $firebase(fb);
-            element.$remove().then(function(ref) {
-                $('#deleteModal').modal('hide');
+            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Services/" + $scope.ServiceToDelete.$id);
+            var ServiceElement = $firebase(fb);
+            ServiceElement.$remove().then(function(ref) {
+                $('#deleteModalService').modal('hide');
             }, function(error) {
                 console.log("Error:", error);
             });
         };
-        $scope.update = function() {
-            console.log($scope.postToUpdate.id);
-            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/" + $scope.postToUpdate.$id);
-            var element = $firebase(fb);
-            element.$update({
-                name: $scope.postToUpdate.name
+        $scope.updateService = function() {
+            console.log($scope.ServiceToUpdate.id);
+            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Services/" + $scope.ServiceToUpdate.$id);
+            var ServiceElement = $firebase(fb);
+            ServiceElement.$update({
+                name: $scope.ServiceToUpdate.name
 
             }).then(function(ref) {
                 console.log(ref.key()); // bar
-                $('#editModal').modal('hide');
+                $('#editModalService').modal('hide');
             }, function(error) {
                 console.log("Error:", error);
             });
@@ -85,16 +124,84 @@ angular.module( 'ngBoilerplate.services', [
         };
         $scope.editService = function(id) {
             console.log(id);
-            var firebaseObj = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/" + id);
+            var firebaseObjService = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Services/" + id);
 
 
-            var syn = $firebase(firebaseObj);
-            $scope.postToUpdate = syn.$asObject();
+            var ServiceSync = $firebase(firebaseObjService);
+            $scope.ServiceToUpdate = ServiceSync.$asObject();
 
-            $('#editModal').modal();
+            $('#editModalService').modal();
         };
 
+//-------------------------------SKILLS-------------------------------------------------------
 
+        var firebaseObjSkills = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Skills/");
+
+
+        var SkillsNameSync = $firebase(firebaseObjSkills);
+
+        $scope.SkillsName = SkillsNameSync.$asArray();
+
+
+        //Add Skills
+        $scope.AddSkills = function(){
+
+            var SkillsName = $scope.SkillsName.name;
+            var SelectedService = $scope.SelectedService.name;
+
+
+            SkillsNameSync.$push({name: SkillsName,SelectedService:SelectedService}).then(function(ref) {
+
+
+            }, function(error) {
+
+                console.log("Error:", error);
+            });
+
+        };
+
+        //Message about Delete
+        $scope.confirmDeleteSkills = function(id) {
+            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Skills/" + id);
+            var SkillsElement = $firebase(fb);
+            $scope.SkillsToDelete = SkillsElement.$asObject();
+            $('#deleteModalSkills').modal();
+        };
+
+        $scope.deleteSkills = function() {
+            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Skills/" + $scope.SkillsToDelete.$id);
+            var SkillsElement = $firebase(fb);
+            SkillsElement.$remove().then(function(ref) {
+                $('#deleteModalSkills').modal('hide');
+            }, function(error) {
+                console.log("Error:", error);
+            });
+        };
+        $scope.updateSkills = function() {
+            console.log($scope.SkillsToUpdate.id);
+            var fb = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Skills/" + $scope.SkillsToUpdate.$id);
+            var SkillsElement = $firebase(fb);
+            SkillsElement.$update({
+                name: $scope.SkillsToUpdate.name
+
+            }).then(function(ref) {
+                console.log(ref.key()); // bar
+                $('#editModalSkills').modal('hide');
+            }, function(error) {
+                console.log("Error:", error);
+            });
+
+        };
+        $scope.editSkills = function(id) {
+            console.log(id);
+            var firebaseObjSkills = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Skills/" + id);
+
+
+            var syncSkills = $firebase(firebaseObjSkills);
+            $scope.SkillsToUpdate = syncSkills.$asObject();
+
+            $('#editModalSkills').modal();
+        };
 })
 
 ;

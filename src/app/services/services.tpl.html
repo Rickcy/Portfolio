@@ -24,6 +24,7 @@
 
                 <div class="pfblock-header wow fadeInUp">
                   <h2 class="pfblock-title">This is what I do</h2>
+
                   <div class="pfblock-line"></div>
 
                 </div>
@@ -41,7 +42,7 @@
   <br/>
   <br/>
 </div>
-              <div  ng-repeat="elements in element" class="col-sm-{{element.length>3?element.length>5?6:3:4}}">
+              <div  ng-repeat="elements in ServiceName" class="col-sm-{{ServiceName.length>3?ServiceName.length>5?6:3:4}}">
 
                 <div class="iconbox wow slideInLeft">
                   <div class="iconbox-icon">
@@ -56,47 +57,6 @@
 
               </div>
 
-    <!--         <div class="col-sm-3">-->
-
-    <!--           <div class="iconbox wow slideInLeft">-->
-    <!--             <div class="iconbox-icon">-->
-    <!--               <span class="icon-puzzle"></span>-->
-    <!--             </div>-->
-    <!--             <div class="iconbox-text">-->
-    <!--               <h3 class="iconbox-title">Front-end</h3>-->
-
-    <!--             </div>-->
-    <!--           </div>-->
-
-    <!--         </div>-->
-
-    <!--         <div class="col-sm-3">-->
-
-    <!--           <div class="iconbox wow slideInLeft">-->
-    <!--             <div class="iconbox-icon">-->
-    <!--               <span class="icon-puzzle"></span>-->
-    <!--             </div>-->
-    <!--             <div class="iconbox-text">-->
-    <!--               <h3 class="iconbox-title">Back-end</h3>-->
-
-    <!--             </div>-->
-    <!--           </div>-->
-
-    <!--         </div>-->
-
-    <!--         <div class="col-sm-3">-->
-
-    <!--           <div class="iconbox wow slideInRight">-->
-    <!--             <div class="iconbox-icon">-->
-    <!--               <span class="icon-question"></span>-->
-    <!--             </div>-->
-    <!--             <div class="iconbox-text">-->
-    <!--               <h3 class="iconbox-title">Consultation</h3>-->
-
-    <!--             </div>-->
-    <!--           </div>-->
-
-    <!--         </div>-->
 
             </div><!-- .row -->
           </div><!-- .container -->
@@ -130,88 +90,21 @@
           </div>
           <div class="row">
 
-            <div class="col-sm-4">
+              <div  ng-repeat="elements in SkillsName" class="col-sm-{{SkillsName.length>3?SkillsName.length>5?6:3:4}}">
 
               <div class="iconbox wow slideInLeft">
                 <div class="iconbox-icon">
                   <span class="icon-magic-wand"></span>
                 </div>
                 <div class="iconbox-text">
-                  <h3 class="iconbox-title">Photoshop</h3>
+                  <h3 class="iconbox-title">{{elements.name}}</h3>
 
                 </div>
               </div>
 
             </div>
 
-            <div class="col-sm-4">
 
-              <div class="iconbox wow slideInLeft">
-                <div class="iconbox-icon">
-                  <span class="icon-puzzle"></span>
-                </div>
-                <div class="iconbox-text">
-                  <h3 class="iconbox-title">Html|Css</h3>
-
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-sm-4">
-
-              <div class="iconbox wow slideInLeft">
-                <div class="iconbox-icon">
-                  <span class="icon-puzzle"></span>
-                </div>
-                <div class="iconbox-text">
-                  <h3 class="iconbox-title">AngularJS</h3>
-
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-sm-4">
-
-              <div class="iconbox wow slideInRight">
-                <div class="iconbox-icon">
-                  <span class="icon-question"></span>
-                </div>
-                <div class="iconbox-text">
-                  <h3 class="iconbox-title">JS|Jquery</h3>
-
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-sm-4">
-
-              <div class="iconbox wow slideInRight">
-                <div class="iconbox-icon">
-                  <span class="icon-question"></span>
-                </div>
-                <div class="iconbox-text">
-                  <h3 class="iconbox-title">Php|MySQL</h3>
-
-                </div>
-              </div>
-
-            </div>
-            <div class="col-sm-4">
-
-              <div class="iconbox wow slideInRight">
-                <div class="iconbox-icon">
-                  <span class="icon-question"></span>
-                </div>
-                <div class="iconbox-text">
-                  <h3 class="iconbox-title">Java|Grails|Spring</h3>
-
-                </div>
-              </div>
-
-            </div>
 
 
           </div><!-- .row -->

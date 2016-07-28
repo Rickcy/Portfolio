@@ -14,10 +14,19 @@ angular.module( 'ngBoilerplate.admin', [
 
 
         };
-        var firebaseObj = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/");
+        var firebaseObjService = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Services/");
 
 
-        var sync = $firebase(firebaseObj);
+        var syncService = $firebase(firebaseObjService);
 
-        $scope.element = sync.$asArray();
+        $scope.ServiceName = syncService.$asArray();
+
+
+        var firebaseObjSkills = new Firebase("https://blinding-torch-9042.firebaseIO.com/PortfolioAng/SaS/Skills/");
+
+
+        var syncSkills = $firebase(firebaseObjSkills);
+
+        $scope.SkillsName = syncSkills.$asArray();
+
     });
